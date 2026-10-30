@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Гастротека — гастробуфет в доме «Вогау и Ко», Омск</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF1EC; --surface:#FFFFFF; --ink:#1C2A25; --muted:#55645E;
+  --green:#1F3A33; --brass:#A97C2F; --tea:#5A3A22; --fresco:#6E8FA8; --line:#CDD5CF;
+  --on-green:#F3F1E8;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121A17; --surface:#1A2420; --ink:#E7EBE6; --muted:#A3B0AA;
+    --green:#0E1C18; --brass:#D2A658; --tea:#C99A72; --fresco:#93B2C9; --line:#2C3A35;
+    --on-green:#EDEAE0; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121A17; --surface:#1A2420; --ink:#E7EBE6; --muted:#A3B0AA;
+  --green:#0E1C18; --brass:#D2A658; --tea:#C99A72; --fresco:#93B2C9; --line:#2C3A35;
+  --on-green:#EDEAE0; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Manrope",system-ui,-apple-system,"Segoe UI",sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--green)}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.demo{background:var(--brass);color:#1A1205;font-size:14px;text-align:center;padding:8px 16px}
+.demo a{font-weight:700}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--green);color:var(--on-green)}
+.nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
+.logo{font:400 26px/1 "Forum",Georgia,serif;letter-spacing:.04em;text-decoration:none}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:15px}
+.nav ul a{text-decoration:none;opacity:.85}
+.nav ul a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+@media (max-width:720px){.nav ul{display:none}}
+.btn{display:inline-block;background:var(--brass);color:#1A1205;border:0;border-radius:2px;padding:12px 22px;font:700 15px/1 "Manrope",sans-serif;text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:inherit;border:1px solid currentColor}
+
+/* Hero: an art-nouveau arch, the shape of the 1912 facade windows */
+.hero{background:var(--green);color:var(--on-green);padding:56px 20px 0;overflow:hidden}
+.hero-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
+@media (max-width:860px){.hero-in{grid-template-columns:1fr}}
+.hero h1{font:400 clamp(56px,10vw,120px)/.95 "Forum",Georgia,serif;margin:0 0 20px;letter-spacing:.01em}
+.hero p.lead{font-size:20px;max-width:30ch;margin:0 0 28px;opacity:.9}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px}
+.arch{justify-self:center;width:100%;max-width:420px}
+.year{font:400 20px/1 "Forum",serif;letter-spacing:.04em;color:var(--brass);margin:0 0 14px}
+
+section{padding:80px 20px}
+.wrap{max-width:1100px;margin:0 auto}
+h2{font:400 clamp(36px,5vw,56px)/1.05 "Forum",Georgia,serif;margin:0 0 18px}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+@media (max-width:860px){.story{grid-template-columns:1fr}}
+.story p{max-width:60ch;margin:0 0 16px}
+.quote{font:400 28px/1.3 "Forum",serif;color:var(--tea);border-left:3px solid var(--brass);padding-left:22px;margin:8px 0 0}
+
+/* Menu as a price board, the way a merchant's shop listed goods */
+.menu{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0 32px}
+.tab{background:transparent;border:1px solid var(--line);color:var(--ink);padding:10px 18px;border-radius:999px;font:500 15px/1 "Manrope",sans-serif;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--green);color:var(--on-green);border-color:var(--green)}
+.board{display:grid;grid-template-columns:1fr 1fr;gap:6px 56px}
+@media (max-width:760px){.board{grid-template-columns:1fr}}
+.item{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:16px 0;border-bottom:1px dotted var(--line)}
+.item b{font-weight:700}
+.item span{color:var(--muted);font-size:15px;grid-column:1}
+.item i{font-style:normal;font-family:"Forum",serif;font-size:22px;color:var(--brass);grid-row:1;grid-column:2}
+.note{color:var(--muted);font-size:14px;margin-top:20px}
+
+.fresco{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+@media (max-width:760px){.fresco{grid-template-columns:1fr}}
+.fresco figure{margin:0}
+.fresco figcaption{font-size:15px;color:var(--muted);margin-top:10px}
+.fresco svg{display:block;width:100%;height:auto;border-radius:2px}
+
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+@media (max-width:860px){.visit{grid-template-columns:1fr}}
+.facts{margin:0;display:grid;grid-template-columns:auto 1fr;gap:12px 24px}
+.facts dt{color:var(--muted)}
+.facts dd{margin:0;font-weight:500}
+form{display:grid;gap:14px;background:var(--surface);border:1px solid var(--line);padding:28px;border-radius:2px}
+label{display:grid;gap:6px;font-size:15px;color:var(--muted)}
+input,select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:2px;padding:12px}
+.ok{display:none;color:var(--green);font-weight:700}
+:root[data-theme="dark"] .ok{color:var(--brass)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ok{color:var(--brass)}}
+footer{background:var(--green);color:var(--on-green);padding:36px 20px;font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="demo">Это демо-версия сайта. Хотите такой же — напишите в Telegram <a href="https://t.me/fly2856">@fly2856</a></div>
+<header>
+  <nav class="nav" aria-label="Основное меню">
+    <a class="logo" href="#top">Гастротека</a>
+    <ul>
+      <li><a href="#history">История дома</a></li>
+      <li><a href="#menu">Меню</a></li>
+      <li><a href="#fresco">Интерьер</a></li>
+      <li><a href="#visit">Как найти</a></li>
+    </ul>
+    <a class="btn" href="#visit">Забронировать стол</a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-in">
+    <div>
+      <p class="year">Дом «Вогау и Ко», 1912 год</p>
+      <h1>Гастро&shy;тека</h1>
+      <p class="lead">Гастробуфет на Любинском: обеды, свежая выпечка и чай там, где им торговали сто лет назад.</p>
+      <div class="actions">
+        <a class="btn" href="#menu">Посмотреть меню</a>
+        <a class="btn ghost" href="#visit">Как нас найти</a>
+      </div>
+    </div>
+    <svg class="arch" viewBox="0 0 400 460" role="img" aria-label="Арочное окно в стиле модерн с чашкой чая">
+      <path d="M20 460 V190 C20 90 100 20 200 20 C300 20 380 90 380 190 V460" fill="none" stroke="var(--brass)" stroke-width="3"/>
+      <path d="M50 460 V196 C50 112 118 52 200 52 C282 52 350 112 350 196 V460" fill="none" stroke="var(--brass)" stroke-width="1.2" opacity=".7"/>
+      <path d="M200 52 V460 M50 260 H350" stroke="var(--brass)" stroke-width="1" opacity=".35"/>
+      <g fill="none" stroke="var(--brass)" stroke-width="1.6">
+        <path d="M120 120 C150 90 170 110 200 80 C230 110 250 90 280 120"/>
+        <path d="M140 150 C165 128 180 140 200 118 C220 140 235 128 260 150" opacity=".7"/>
+      </g>
+      <g transform="translate(200 360)">
+        <ellipse cx="0" cy="58" rx="110" ry="14" fill="var(--brass)" opacity=".25"/>
+        <path d="M-70 -10 H70 C70 40 40 62 0 62 C-40 62 -70 40 -70 -10 Z" fill="var(--on-green)"/>
+        <path d="M70 4 C100 4 100 38 66 34" fill="none" stroke="var(--on-green)" stroke-width="7"/>
+        <ellipse cx="0" cy="-10" rx="70" ry="10" fill="var(--tea)"/>
+        <path d="M-20 -30 C-30 -50 -10 -60 -20 -82 M10 -30 C0 -52 22 -62 12 -88" fill="none" stroke="var(--on-green)" stroke-width="2" opacity=".6"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section id="history">
+  <div class="wrap story">
+    <div>
+      <h2>Чай и кофе вернулись в этот дом</h2>
+      <p>Торговое товарищество «Вогау и Ко» построило это здание в 1912 году. Больше века назад под его крышей продавали чай и кофе со всей России.</p>
+      <p>Мы продолжаем ту же историю по-современному: готовим русско-европейскую кухню, печём каждый день, завариваем альтернативный кофе и делаем авторские лимонады на чае.</p>
+    </div>
+    <p class="quote">Приходите на полноценный обед в будний день или за пирогом и чашкой чая после прогулки по Любинскому.</p>
+  </div>
+</section>
+
+<section id="menu" class="menu">
+  <div class="wrap">
+    <h2>Меню</h2>
+    <div class="tabs" role="tablist" aria-label="Разделы меню">
+      <button class="tab" role="tab" aria-selected="true" data-tab="lunch">Обеды</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="bake">Выпечка</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="drinks">Чай и кофе</button>
+    </div>
+    <div class="board" data-panel="lunch">
+      <div class="item"><b>Борщ с говядиной</b><i>390 ₽</i><span>Сметана, чесночные пампушки</span></div>
+      <div class="item"><b>Котлета по-киевски</b><i>520 ₽</i><span>Картофельное пюре, зелёное масло</span></div>
+      <div class="item"><b>Пельмени сибирские</b><i>450 ₽</i><span>Три вида мяса, сметана</span></div>
+      <div class="item"><b>Салат с ростбифом</b><i>480 ₽</i><span>Печёная свёкла, руккола, хрен</span></div>
+      <div class="item"><b>Бизнес-ланч</b><i>420 ₽</i><span>Суп, горячее, морс. По будням до 16:00</span></div>
+      <div class="item"><b>Уха по-купечески</b><i>460 ₽</i><span>Судак, сёмга, расстегай</span></div>
+    </div>
+    <div class="board" data-panel="bake" hidden>
+      <div class="item"><b>Расстегай с рыбой</b><i>220 ₽</i><span>Печём с утра</span></div>
+      <div class="item"><b>Пирог с капустой</b><i>180 ₽</i><span>Порционный кусок</span></div>
+      <div class="item"><b>Медовик</b><i>290 ₽</i><span>Сметанный крем</span></div>
+      <div class="item"><b>Круассан</b><i>190 ₽</i><span>Сливочное масло 82%</span></div>
+    </div>
+    <div class="board" data-panel="drinks" hidden>
+      <div class="item"><b>Лимонад «Вогау»</b><i>320 ₽</i><span>Чёрный чай, облепиха, чабрец</span></div>
+      <div class="item"><b>Лимонад на улуне</b><i>320 ₽</i><span>Груша, лемонграсс</span></div>
+      <div class="item"><b>Фильтр-кофе</b><i>230 ₽</i><span>Альтернативное заваривание, зерно меняется</span></div>
+      <div class="item"><b>Чайник чая</b><i>350 ₽</i><span>Иван-чай, сибирский сбор, ассам</span></div>
+    </div>
+    <p class="note">В демо-версии блюда и цены примерные. На настоящем сайте здесь будет актуальное меню заведения.</p>
+  </div>
+</section>
+
+<section id="fresco">
+  <div class="wrap">
+    <h2>Фрески с омскими мотивами</h2>
+    <p style="max-width:60ch">Стены зала расписывают художники: на них город, который знает каждый омич.</p>
+    <div class="fresco">
+      <figure>
+        <svg viewBox="0 0 300 220" aria-hidden="true"><rect width="300" height="220" fill="var(--fresco)"/><path d="M0 170 Q75 150 150 168 T300 160 V220 H0Z" fill="var(--green)" opacity=".55"/><g fill="var(--on-green)"><rect x="110" y="70" width="80" height="90"/><path d="M104 72 L150 36 L196 72Z"/><rect x="140" y="100" width="20" height="60" fill="var(--fresco)"/></g></svg>
+        <figcaption>Тарские ворота</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 300 220" aria-hidden="true"><rect width="300" height="220" fill="var(--brass)" opacity=".75"/><path d="M0 150 C80 130 220 175 300 140 V220 H0Z" fill="var(--fresco)"/><path d="M0 175 C90 160 200 195 300 170" stroke="var(--on-green)" stroke-width="3" fill="none" opacity=".7"/><circle cx="230" cy="62" r="26" fill="var(--on-green)" opacity=".85"/></svg>
+        <figcaption>Слияние Иртыша и Оми</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 300 220" aria-hidden="true"><rect width="300" height="220" fill="var(--green)"/><g fill="var(--brass)"><circle cx="150" cy="60" r="16"/><rect x="138" y="76" width="24" height="70" rx="8"/><rect x="128" y="146" width="44" height="40"/></g><path d="M0 186 H300" stroke="var(--on-green)" stroke-width="2" opacity=".5"/></svg>
+        <figcaption>Сантехник Степаныч</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="visit" class="menu">
+  <div class="wrap visit">
+    <div>
+      <h2>Как нас найти</h2>
+      <dl class="facts">
+        <dt>Адрес</dt><dd>ул. Карла Либкнехта, 5, Омск<br>отдельный вход, рядом с памятником Степанычу</dd>
+        <dt>Часы</dt><dd>Ежедневно, часы уточняются</dd>
+        <dt>Телефон</dt><dd>+7 (3812) 00-00-00</dd>
+      </dl>
+      <p class="note">Телефон и часы работы в демо условные.</p>
+    </div>
+    <form id="book" novalidate>
+      <label>Имя<input name="name" autocomplete="name" required></label>
+      <label>Телефон<input name="tel" type="tel" autocomplete="tel" required></label>
+      <label>Гостей
+        <select name="guests"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5 и больше</option></select>
+      </label>
+      <label>Дата и время<input name="when" type="datetime-local" required></label>
+      <button class="btn" type="submit">Забронировать стол</button>
+      <p class="ok" role="status" id="ok">Стол забронирован. Мы перезвоним, чтобы подтвердить.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© Гастротека, Омск</span>
+    <span>Демо-сайт: <a href="https://t.me/fly2856">@fly2856</a></span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected', x===t ? 'true':'false')});
+    document.querySelectorAll('[data-panel]').forEach(function(p){p.hidden = p.dataset.panel !== t.dataset.tab});
+  });
+});
+document.getElementById('book').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=e.target, ok=document.getElementById('ok');
+  if(!f.name.value.trim()||!f.tel.value.trim()||!f.when.value){ok.style.display='block';ok.textContent='Заполните имя, телефон и время, чтобы забронировать стол.';return;}
+  ok.style.display='block';ok.textContent='Стол забронирован. Мы перезвоним, чтобы подтвердить.';f.reset();
+});
+</script>
+</body>
+</html>
